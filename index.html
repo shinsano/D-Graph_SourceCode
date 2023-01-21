@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <title>MAC System</title>
+    <link rel="stylesheet" href="https://yuriom.pythonanywhere.com/stylesheet.css" type="text/css"
+        crossorigin="anonymous">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body class="noselect" style="visibility: hidden;">
+    <div id="wrapper" data-toggle="tooltip">
+        <nav id="navbar" class="navbar navbar-sm navbar-dark bg-dark d-flex">
+            <div id="design-brief-container" class="d-flex mr-auto p-2"
+                style="width: 50%; padding: 0; padding-left: 8px; justify-content: center; align-items: center;">
+                <div class="navbar-text" style="color: lightgray; padding-left: 8pt;">
+                    <b>Design&nbsp;Brief</b>
+                </div>
+                <div class="navbar-text"
+                    style="font-size: 14px; display: inline-block; border-radius: 6px; padding-left: 8px; padding-right: 8px; margin: 8px 8px 8px 8px; background: black; color: white; font-style: italic;">
+                    <span id="design-brief" style=" visibility: hidden;">
+                        Imagine a car for the megalopolis of tomorrow
+                        and consider four important aspects: environmental friendliness, social harmony, interactive
+                        mobility and economic efficiency.
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex p-2" style="padding: 0px 0px; padding-left: 8px;">
+                <button id=clear-button class="btn btn-sm btn-secondary navbar-btn" tabindex=1
+                    accesskey="c">Clear</button>
+                <input id="search-box" class="form-control form-control-sm" type="text"
+                    placeholder="Search for related adjectives." value="" style="width: 256px;">
+                <button id="search-button" class="btn btn-sm btn-secondary navbar-btn" style="height: 40px;" tabindex=2
+                    accesskey="s">
+                    <svg id="search-icon" class="search-icon" viewBox="0 0 24 24">
+                        <path fill="white"
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        <path d="M0 0h24v24H0z" fill="none" />
+                    </svg>
+                </button>
+                <span id="stopwatch-display"
+                    style='font-family: "Roboto Mono", monospace; font-weight: 300; font-size: 24px; color: white; padding-left: 16px; padding-right: 8px; visibility: hidden;'>00:00:00</span>
+                <button id="stopwatch-button" class="btn btn-sm btn-danger navbar-btn" tabindex=3
+                    accesskey="s">Start</button>
+            </div>
+        </nav>
+        <div id="lower-pane">
+            <div id="alert" class="alert alert-success alert-dismissible;" style="visibility: hidden;" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <span id="alert-text">&nbsp</span>
+            </div>
+            <div id="graph">
+            </div>
+            <div id="control-panel">
+                <div id="character-space-heading" class="heading d-flex align-items-center">
+                    <span class="mr-auto p-2">
+                        Character&nbsp;Space
+                    </span>
+                    <input id="character-space-box" class="form-control form-control-sm p-2" type="text" placeholder=""
+                        value="" style="visibility: hidden;">
+                    <button id="set-word-in-character-space-button" class="btn btn-sm btn-dark p-2" tabindex=4
+                        accesskey="p" style="visibility: hidden;">
+                        Set
+                    </button>
+                    <!--
+                    <button id="undo-set-word-button" class="btn btn-sm btn-dark p-2" tabindex=4 accesskey="p">
+                         Undo
+                    </button>
+                    -->
+                </div>
+                <div id="design-concept-map" class="row" style="width: 576px; height: 368px; margin: 0; padding: 0;">
+                    <div class="row"
+                        style="height: 40px; width: 576px; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; color: white;">
+                        <div id="word1-container" style="height: 24px; width: 144px; text-align: center; padding: 0;">
+                            word1</div>
+                    </div>
+                    <div class="row" style="width: 576px; height: 288px; margin: 0; padding: 0;">
+                        <div class="column draggable-word-container"
+                            style="height: 286px; width: 144px; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; color: white;">
+                            <div id="word4-container"
+                                style="height: 24px; width: 144px; text-align: right; padding: 0px 16px 0 0;">word4
+                            </div>
+                        </div>
+                        <div id="design-concept-map-inner-square" class="column"
+                            style="margin: 0; padding: 0; height: 286px; width: 286px;">
+                            <div class="row" style="margin: 0; padding: 0; height: 143px; width: 286px">
+                                <div id="design-concept-map-lefttop-quadrant"
+                                    class="design-concept-map-quadrant column">
+                                    <div id="design-concept-map-quadrant-internal-area4"
+                                        class="design-concept-map-quadrant-internal-area"></div>
+                                    <div id="design-concept-map-circle-righttop" class="design-concept-map-circle">
+                                    </div>
+                                </div>
+                                <div id="design-concept-map-righttop-quadrant"
+                                    class="design-concept-map-quadrant column">
+                                    <div id="design-concept-map-quadrant-internal-area1"
+                                        class="design-concept-map-quadrant-internal-area">
+                                    </div>
+                                    <div id="design-concept-map-circle-rightbottom" class="design-concept-map-circle">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 0; padding: 0; height: 143px; width: 286px">
+                                <div id="design-concept-map-leftbottom-quadrant"
+                                    class="design-concept-map-quadrant column">
+                                    <div id="design-concept-map-quadrant-internal-area3"
+                                        class="design-concept-map-quadrant-internal-area"></div>
+                                    <div id="design-concept-map-circle-lefttop" class="design-concept-map-circle"></div>
+                                </div>
+                                <div id="design-concept-map-rightbottom-quadrant"
+                                    class="design-concept-map-quadrant column">
+                                    <div id="design-concept-map-quadrant-internal-area2"
+                                        class="design-concept-map-quadrant-internal-area"></div>
+                                    <div id="design-concept-map-circle-leftbottom" class="design-concept-map-circle">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column draggable-word-container"
+                            style="height: 288px; width: 144px; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;">
+                            <div id="word2-container"
+                                style="height: 24px; width: 144px; text-align: left; padding: 0px 0 0 16px;">word2</div>
+                        </div>
+                    </div>
+                    <div class="row"
+                        style="height: 40px; width: 576px; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; color: white; ">
+                        <div id="word3-container" style="height: 24px; width: 144px; text-align: center; padding: 0;">
+                            word3</div>
+                    </div>
+                </div>
+                <div class="heading d-flex align-items-center">
+                    <span class="mr-auto p-2">
+                        Word&nbsp;Pool
+                    </span>
+                    <input id="word-pool-box" class="form-control form-control-sm p-2" type="text" placeholder=""
+                        value="">
+                    <button id="add-word-to-word-pool-button" class="btn btn-sm btn-dark p-2" tabindex=4 accesskey="p">
+                        Add
+                    </button>
+                </div>
+                <div id="word-pool">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dragged-word-container"></div>
+    <div id="invisible-tooltip-holder"
+        style="position: fixed; visibility: hidden; left: 0; top: 0; width: 8; height: 32;"></div>
+    <!-- jQuery and Bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- 3D -->
+    <script src="https://unpkg.com/3d-force-graph"></script>
+    <script src="https://unpkg.com/three"></script>
+    <script src="https://unpkg.com/three-spritetext"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
