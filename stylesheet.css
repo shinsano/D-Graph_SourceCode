@@ -1,0 +1,305 @@
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+  background-color: black !important;
+  overflow: hidden;
+  height: 100%;
+  min-height: 100%;
+}
+
+#wrapper {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+}
+
+#alert {
+    position:fixed;
+    z-index:9999;
+    border-radius:0px;
+    opacity: 0.85;
+    min-width:0px;
+}
+
+#graph {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    z-index:0;
+}
+
+#control-panel {
+    position:absolute;
+    top: 0px;
+    z-index:0;
+}
+
+#search-button {
+  width: 60px;
+  height: 32px;
+}
+
+#search-button svg {
+  width: 25px;
+  height: 25px;
+}
+
+#help-design-brief {
+    width: 80px;
+    height: 80px;
+}
+
+#help-design-brief svg {
+    width: 60px;
+    height: 60px;
+}
+
+#graph {
+  overflow: hidden;
+  height: 100%;
+  min-height: 100%;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#control-panel {
+    background: #212529;
+}
+
+#lower-pane {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+#graph, #control-panel {display: inline-block; *display: inline; zoom: 1; vertical-align: top; }
+#graph { background: white; }
+#control-panel { width: 576px; background: #212529; }
+#control-panel div { padding: 0 0 0 0; margin: 0 0 0 0; }
+#control-panel div.heading { font-size: 16px; color:white; background: #6c757d; }
+#control-panel > div { padding: 8px 8px 8px 8px; }
+#control-panel .row { padding: 0 0 0 0; }
+.draggable-word-container { height: 24px; padding: 0;
+    font-size: 16px;
+    color: white;}
+.draggable-word, #dragged-word {
+    display: inline-block;
+    /*max-height: 24px;*/
+    /*height: 24px;*/
+    /*width: 128px;*/
+    font-size: 16px;
+    color: black;
+    background: #f0f2fc;
+    padding: 4px 4px 4px 4px;
+    margin: 0;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 1;
+}
+#dragged-word {
+    width: 128px;
+    backgroud: white;
+    color: black;
+}
+
+#design-concept-map {
+    height: 352px;
+    width: 576px;
+}
+#design-concept-map > div.row > div.column {
+    padding: 0 0 0 0;
+    padding: 0;    margin: 0 0 0 0;
+    height: 24px;
+    width: 33.3333%;
+}
+#design-concept-map > div.row {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    height: 24px;
+    width: 100%;
+}
+
+#design-concept-map-inner-square {
+    position: relative;
+}
+
+.design-concept-map-quadrant {
+    position: relative;
+    height: 143px;
+    width: 143px;
+    margin: 0;
+    padding: 0;
+}
+
+#design-concept-map-lefttop-quadrant {
+    border-bottom: 1px dashed white;
+    border-right: 1px dashed white;
+}
+
+#design-concept-map-righttop-quadrant {
+    border-bottom: 1px dashed white;
+    border-left: 1px dashed white;
+}
+
+#design-concept-map-leftbottom-quadrant {
+    border-top: 1px dashed white;
+    border-right: 1px dashed white;
+}
+
+#design-concept-map-rightbottom-quadrant {
+    border-top: 1px dashed white;
+    border-left: 1px dashed white;
+}
+
+.design-concept-map-quadrant-internal-area {
+ position: absolute;
+  width: 127px;
+  height: 127px;
+  left: 8px;
+  top: 8px;
+  display: flex; justify-content: center; align-items: center; text-align: center;
+  font-size: 12px;
+  line-space: 1;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.design-concept-map-circle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  background: white;
+}
+
+#design-concept-map-circle-lefttop {
+  top: -7px;
+  left: -7px;
+}
+
+#design-concept-map-circle-righttop {
+  top: -7px;
+  right: -7px;
+
+}
+
+#design-concept-map-circle-leftbottom {
+  bottom: -7px;
+  left: -7px;
+}
+
+#design-concept-map-circle-rightbottom {
+  bottom: -7px;
+  right: -7px;
+}
+
+.navbar-brand {
+  padding-left: 10px;
+}
+
+.dropdown {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-group,  {
+  margin-left: 20px;
+}
+
+#search-box,
+#debug-button,
+#clear-button,
+#zoom-to-fit-button,
+#start-button,
+#search-button,
+#set-word-in-character-space-button,
+#undo-set-word-button,
+#add-word-to-word-pool-button {
+  margin-left: 10px;
+}
+
+.tooltip-main {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-weight: 700;
+  background: white;
+  border: transparent;
+  color: black;
+  margin: 4px 121px 0 5px;
+  float: right;
+  text-align: left !important;
+}
+
+.tooltip-qm {
+  float: left;
+  margin: -2px 0px 3px 4px;
+  font-size: 12px;
+  border: transparent;
+}
+
+.tooltip .arrow {
+    visibility: hidden;
+}
+.tooltip-inner {
+  text-align: left !important;
+  max-width: 600px !important;
+  font-size: 12px;
+  padding: 8px;
+  background-color: rgb(255, 255, 255, 0.90) !important;
+  color: black !important;
+  border: transparent;
+  text-align: left;
+}
+
+/*Dropdown select style:*/
+.custom-select-panel {
+  position: relative;
+  font-family: Arial;
+  width: 150px;
+}
+
+.custom-select-panel select{
+  width: 100%;
+  border-radius: 3px;
+}
+
+#spinner {
+    background: url('https://miro.medium.com/max/1600/0*DJzrn8z_bpebUoN7.gif') no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999999;
+}
+
+#overlay {
+    position: fixed;
+    background: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+}
+
+#alert-fix-text {
+    position: absolute;
+    transform: translateY(30vh);
+    width: 100%;
+    text-align: center;
+    color: dimgrey;
+}
